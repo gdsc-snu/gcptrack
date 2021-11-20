@@ -8,7 +8,7 @@ Reserved repository for Winter of Code 2.0 participants.
 - Subtitle: A dashboard for 30daysofgooglecloud program.
 - Difficulty: `Medium`
 - Mentee/Student/Participant Intake: `1-3`
-- Primary Mentor: `osama.008667@gmail.com`
+- Primary Mentor: `osamabinjunaid36@gmail.com`
 <!-- - Forum: [WoC 2.0 Discussion - Ask all of your tech/non-tech doubts here](https://github.com/gdsc-snu/CoalaDraw/discussions/3) -->
 - Sub-domains: `Frontend`, `Backend`, `React/Ionic`
 - Platfroms: `cross-platform` - Based on web technologies
