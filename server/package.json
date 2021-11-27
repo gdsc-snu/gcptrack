@@ -1,0 +1,24 @@
+{
+  "name": "gcptrack-server",
+  "version": "0.0.1",
+  "description": "Backend server for gcptrack",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "dev": "nodemon src/index.ts"
+  },
+  "author": "gdsc-snu",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.1",
+    "googleapis": "^91.0.0",
+    "mongoose": "^6.0.13",
+    "node-schedule": "^2.0.0",
+    "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "nodemon": "^2.0.15"
+  }
+}
