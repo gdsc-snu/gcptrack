@@ -1,7 +1,8 @@
 import rp from 'request-promise';
 import * as cheerio from 'cheerio';
+import { I_BadgeSchema } from '../utils/interfaces';
 
-function extractBadgeDetails(BadgeHTMLElem: cheerio.Element) {
+function extractBadgeDetails(BadgeHTMLElem: cheerio.Element): I_BadgeSchema {
     const BadgeDetail: any = {};
     BadgeHTMLElem.children.forEach( (elem: any) => {
         if(elem.type === 'tag' && elem.name === 'a') {
@@ -17,11 +18,11 @@ function extractBadgeDetails(BadgeHTMLElem: cheerio.Element) {
     return BadgeDetail;
 }
 
-export async function getBadgesFromURL(qwiklabURL: string) {
+export async function getBadgesFromURL(qwiklabURL: string): Promise<Array< I_BadgeSchema> > {
     const html = await rp(qwiklabURL);
     const $ = cheerio.load(html);
     let k: string, v: cheerio.Element;
-    const BadgeDetails = [];
+    const BadgeDetails: Array<I_BadgeSchema> = [];
     for( [k ,v ] of Object.entries($('.profile-badge')) ){
         if( Number.isInteger(Number(k)) ){
             BadgeDetails.push( extractBadgeDetails(v) );

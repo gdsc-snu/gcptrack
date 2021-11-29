@@ -4,12 +4,20 @@ import AdminRoutes from './routes/admin';
 import ViewerRoutes from './routes/viewer';
 
 import { HOST, PORT } from './configs/server-config';
+import { connect } from 'mongoose';
 
 // Create an express server
 const Server = express()
 
 Server.use(express.json());
 Server.use(express.urlencoded({ extended: true }));
+
+connect("mongodb://localhost:27017/gcptrack",(err)=>{
+    if(err)
+        throw Error("Cannot connect to server");
+    else
+        console.log("Successfully connected to db");
+})
 
 /**
  * admin routes are restricted and will only be accessible to facilitator.

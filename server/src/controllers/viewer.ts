@@ -4,12 +4,13 @@
  *
  * You should have received a copy of the BSD 3-Clause license with
  * this file. If not, please write to: , or visit :
+ * Author : Osama Bin Junaid
  */
 
 
 import { Request, Response, NextFunction } from 'express'
 
-import { JobRunner } from '../scheduler/runner';
+import { JobRunner } from '../scheduler/Job-runner';
 
 export const GetSheetData = async ( req: Request, res: Response, nextFn: NextFunction ) => {
     try {

@@ -10,9 +10,10 @@ const auth = new google.auth.GoogleAuth({
 /**
  *Returns the data contained in the spreadsheet.
  * @param spreadsheetId
+ * @param tableTitle
  * @returns sheets_v4.Schema$ValueRange
  */
-export async function getDataFromSheet( spreadsheetId: string ): Promise< any[]| undefined>{
+export async function getDataFromSheet( spreadsheetId: string, tableTitle: string ): Promise< any >{
     //Auth client Object
     const authClientObject = await auth.getClient();
 
@@ -25,20 +26,24 @@ export async function getDataFromSheet( spreadsheetId: string ): Promise< any[]|
         spreadsheetId
     });
 
-    //Get all sheets titles contained in the spreadsheet
-    if( sheetInfo.data.sheets ){
-        var sheetTitles = extractSheetTitles(sheetInfo.data.sheets);
-        const sheetDataPromises = sheetTitles.map((sheetTitle) => {
-            return readDataFromSheetTitles( googleSheetInstance, auth, spreadsheetId, `${sheetTitle}!1:1000`);
-        });
-        const sheetsData = await Promise.all(sheetDataPromises);
-        const sheetObjects = sheetsData.map((sheetData) => sheetValueToObject(sheetData))
-        return sheetObjects;
-    }
+    const sheetData = await readDataFromSheetTitles( googleSheetInstance, auth, spreadsheetId, `${tableTitle}!1:1000`);
 
-    //Read from the spreadsheet
+    return sheetValueToObject(sheetData);
+}
 
-    //Return the data contained in the sheet
+export async function getSheetTitles( spreadsheetId: string ) {
+    const authClientObject = await auth.getClient();
+
+    //Google sheet instance
+    const googleSheetInstance = google.sheets({ version: "v4", auth: authClientObject });
+
+    //Get metadata about sheet
+    const sheetInfo = await googleSheetInstance.spreadsheets.get({
+        auth,
+        spreadsheetId
+    });
+
+    return extractSheetTitles(sheetInfo?.data?.sheets!);
 }
 
 function extractSheetTitles(sheets: sheets_v4.Schema$Sheet[]): Array<string> {
@@ -53,7 +58,7 @@ function extractSheetTitles(sheets: sheets_v4.Schema$Sheet[]): Array<string> {
     return sheetTitles;
 }
 
-async function readDataFromSheetTitles( googleSheetInstance: sheets_v4.Sheets, auth: GoogleAuth , spreadsheetId: string, range?: string) {
+async function readDataFromSheetTitles( googleSheetInstance: sheets_v4.Sheets, auth: GoogleAuth , spreadsheetId: string, range?: string): Promise<sheets_v4.Schema$ValueRange>{
     const readData = await googleSheetInstance.spreadsheets.values.get({
         auth, //auth object
         spreadsheetId, // spreadsheet id,
