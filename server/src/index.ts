@@ -5,18 +5,21 @@ import ViewerRoutes from './routes/viewer';
 
 import { HOST, PORT } from './configs/server-config';
 import { connect } from 'mongoose';
+import { JobRunner } from './scheduler/Job-runner';
+import { JobScheduler } from './scheduler/Job-scheduler';
+import logger from './utils/logger';
 
 // Create an express server
-const Server = express()
+const Server = express();
 
 Server.use(express.json());
 Server.use(express.urlencoded({ extended: true }));
 
-connect("mongodb://localhost:27017/gcptrack",(err)=>{
+connect("mongodb://localhost:27017/gcptrack", (err)=>{
     if(err)
         throw Error("Cannot connect to server");
     else
-        console.log("Successfully connected to db");
+        logger.log("Successfully connected to db");
 })
 
 /**
@@ -36,5 +39,7 @@ Server.use('/admin', AdminRoutes);
 Server.use('/viewer', ViewerRoutes);
 
 Server.listen(PORT, () => {
-    console.log(`http server listening on http://${HOST}:${PORT}` );
+    logger.log(`http server listening on http://${HOST}:${PORT}` );
 })
+
+JobScheduler()

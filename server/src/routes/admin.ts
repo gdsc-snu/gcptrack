@@ -6,12 +6,13 @@
  * this file. If not, please write to: , or visit :
  */
 import { Router } from 'express';
+// import { signinController } from '../controllers/admin';
 
 const router =  Router();
 
 router.get('/fetch-institute');
 
-router.post('/signin');
+// router.post('/signin', signinController);
 
 router.post('/reg-institutue');
 

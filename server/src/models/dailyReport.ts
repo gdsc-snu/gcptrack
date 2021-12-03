@@ -7,7 +7,7 @@
  * Author : Osama Bin Junaid
  */
 
-import { model, Schema } from 'mongoose';
+import { model, Schema, Types } from 'mongoose';
 import { I_BadgeSchema, I_DailyReport, I_StudentReportSchema } from '../utils/interfaces';
 
 const BadgeSchema = new Schema< I_BadgeSchema >({
@@ -30,9 +30,10 @@ const StudentReportSchema = new Schema< I_StudentReportSchema >({
 const DailyReport = new Schema< I_DailyReport >({
     institutionId: {
         required: true,
-        type: String
+        type: Types.ObjectId,
+        ref: 'institutions'
     },
-    date: String,
+    sheetName: String,
     report: [StudentReportSchema]
 }, {timestamps: true});
 

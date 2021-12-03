@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import { model, Schema, Types } from 'mongoose';
 
 const InstitutionDetailSchema = new Schema({
     name : {
@@ -16,31 +16,35 @@ const InstitutionDetailSchema = new Schema({
     }
 });
 
-const FacilitatorSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true,
-    },
-    googleId: {
-        type: String
-    }
-});
-
-/*TODO: Find all the theme properties
-** that can be applied to the institution.
-*/
-const InstitutionThemeSchema = new Schema({
-
-})
-
 const InstutionSchema = new Schema({
     details : InstitutionDetailSchema,
-    facilitator: FacilitatorSchema,
-    isActive: Boolean
+    sheetID: {
+        type: String,
+        reqired: true,
+    },
+    facilitator: {
+        type: Types.ObjectId,
+        ref: 'facilitators'
+    },
+    schedule: {
+        hour: {
+            type: Number,
+            default: 17
+        },
+        minute: {
+            type: Number,
+            default: 30
+        }
+    },
+    lastSyncStatus: {
+        type: String,
+        enum: ["SUCESS", "FAILED"]
+    },
+    lastSyncTime: Date,
+    isActive: {
+        type: Boolean,
+        default: true
+    }
 },{ timestamps: true })
 
-export default model('institution', InstutionSchema);
+export default model('institutions', InstutionSchema);

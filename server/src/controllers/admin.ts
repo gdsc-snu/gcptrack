@@ -6,13 +6,8 @@
  * this file. If not, please write to: , or visit :
  */
 
+import { NextFunction, Request, Response } from 'express';
 
-import { Request, Response, NextFunction } from 'express'
-
-
-export const SignInController = ( req: Request, res: Response, nextFn: NextFunction ) => {
-
-}
 
 export const InstituteRegn = ( req: Request, res: Response, nextFn: NextFunction ) => {
 

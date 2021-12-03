@@ -1,13 +1,13 @@
 import DailyReportsModel from './../models/dailyReport';
 import { studentDetailWithBadges, I_StudentReportSchema } from './interfaces';
 
-export async function saveDetailsToDB(InstitutionDetails: any, Data: any) {
+export async function saveDetailsToDB(ReportData: any) {
     const dailyReportData = new DailyReportsModel({
-        date: new Date(),
-        institutionId: 'test-institute',
-        report: formatReport(Data)
+        sheetName: ReportData.sheetName,
+        institutionId: ReportData.institutionId,
+        report: formatReport(ReportData.report)
     });
-    return await dailyReportData.save()
+    return await dailyReportData.save();
 }
 
 function formatReport(rawReports: studentDetailWithBadges[]){

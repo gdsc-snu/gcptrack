@@ -1,3 +1,5 @@
+import { Types } from 'mongoose';
+
 export interface studentDetail {
     "Student Name": string,
     "Student Email": string,
@@ -31,7 +33,23 @@ export interface I_StudentReportSchema {
 }
 
 export interface I_DailyReport {
-    institutionId: string,
-    date: string,
+    institutionId: any,
+    sheetName: string,
     report: [I_StudentReportSchema]
+}
+
+export interface JobLoaderParams {
+    schedule: {
+        hour: number,
+        minute: number
+    },
+    sheetID: string,
+    _id: Types.ObjectId,
+    name: string
+}
+
+export interface JobRunnerParams {
+    sheetID: string,
+    _id: Types.ObjectId,
+    name: string,
 }

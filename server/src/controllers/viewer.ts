@@ -13,15 +13,15 @@ import { Request, Response, NextFunction } from 'express'
 import { JobRunner } from '../scheduler/Job-runner';
 
 export const GetSheetData = async ( req: Request, res: Response, nextFn: NextFunction ) => {
-    try {
-            const { InstituteId } = req.params;
-            const data = await JobRunner(InstituteId);
-            res.json(data);
+    // try {
+    //         const { InstituteId } = req.params;
+    //         // const data = await JobRunner(InstituteId);
+    //         res.json(data);
 
-    } catch (error) {
-        res.sendStatus(500)
-        console.error('Error', error)
-    }
+    // } catch (error) {
+    //     res.sendStatus(500)
+    //     console.error('Error', error)
+    // }
 }
 
 export const InstituteRegn = ( req: Request, res: Response, nextFn: NextFunction ) => {

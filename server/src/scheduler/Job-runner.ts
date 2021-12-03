@@ -8,15 +8,19 @@
  */
 
 import { saveDetailsToDB } from '../utils/data-manager';
+import { JobRunnerParams } from '../utils/interfaces';
+import logger from '../utils/logger';
 import { combineSheetAndQwiklabBadges } from '../utils/reducer';
-import { getDataFromSheet } from '../utils/sheets';
+import { getDataFromSheet, getSheetTitles } from '../utils/sheets';
 
-export async function JobRunner(sheetId: string) {
-    const sheetsData = await getDataFromSheet(sheetId, '30/10/2021') ?? [];
-
-    const badgedSheet = await combineSheetAndQwiklabBadges(sheetsData);
-
-    const dbStatus = await saveDetailsToDB('123', badgedSheet);
-
-    console.log(dbStatus);
+export async function JobRunner( params: JobRunnerParams ) {
+    try {
+        const sheetTitles = await getSheetTitles(params.sheetID);
+        const sheetName = sheetTitles.pop()!; //make sure that sheetTitles is not empty
+        const sheetData = await getDataFromSheet(params.sheetID, sheetName);
+        const report = await combineSheetAndQwiklabBadges(sheetData);
+        await saveDetailsToDB({ sheetName, report, institutionId: params._id})
+    } catch (error: any) {
+        logger.error(error)
+    }
 }
