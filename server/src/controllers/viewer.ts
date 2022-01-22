@@ -3,36 +3,20 @@
  * terms of the BSD 3-Clause License.
  *
  * You should have received a copy of the BSD 3-Clause license with
- * this file. If not, please write to: , or visit :
- * Author : Osama Bin Junaid
+ * this file. If not, please write to: google.dsc@snuniv.ac.in, or visit :
  */
 
+import { NextFunction, Request, Response } from 'express';
 
-import { Request, Response, NextFunction } from 'express'
-
-import { JobRunner } from '../scheduler/Job-runner';
-
-export const GetSheetData = async ( req: Request, res: Response, nextFn: NextFunction ) => {
-    // try {
-    //         const { InstituteId } = req.params;
-    //         // const data = await JobRunner(InstituteId);
-    //         res.json(data);
-
-    // } catch (error) {
-    //     res.sendStatus(500)
-    //     console.error('Error', error)
-    // }
+export const GetInstituteData = (req: Request, res: Response, nextFn: NextFunction) => {
+    // This api will return latest data to show in dashboard
 }
 
-export const InstituteRegn = ( req: Request, res: Response, nextFn: NextFunction ) => {
-
+export const SearchInstitute = (req: Request, res: Response, nextFn: NextFunction) => {
+    // This api will search intitutions based on the query,
+    // use mongo text search
 }
 
-export const UpdateInstitute = ( req: Request, res: Response, nextFn: NextFunction ) => {
-
-}
-
-
-export const DeleteInstitute = ( req: Request, res: Response, nextFn: NextFunction ) => {
-
+export const GetParticipantProgress = (req: Request, res: Response, nextFn: NextFunction) => {
+    // This api will return participants progress data
 }

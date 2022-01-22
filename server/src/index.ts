@@ -1,13 +1,15 @@
+
+import { connect } from 'mongoose';
 import express from 'express';
 
-import AdminRoutes from './routes/admin';
-import ViewerRoutes from './routes/viewer';
-
+import FacilitatorRoutes from './routes/facilitator';
 import { HOST, PORT } from './configs/server-config';
-import { connect } from 'mongoose';
-import { JobRunner } from './scheduler/Job-runner';
+import InstitutionRoutes from './routes/institution';
+import JobRoutes from './routes/job';
 import { JobScheduler } from './scheduler/Job-scheduler';
 import logger from './utils/logger';
+import ViewerRoutes from './routes/viewer';
+
 
 // Create an express server
 const Server = express();
@@ -23,12 +25,12 @@ connect("mongodb://localhost:27017/gcptrack", (err)=>{
 })
 
 /**
- * admin routes are restricted and will only be accessible to facilitator.
+ * instution routes are restricted and will only be accessible to facilitator.
  * The APIs in this path will allow the facilitator to link a google sheet
  * add / update institution details, and disable the institution account.
  */
 
-Server.use('/admin', AdminRoutes);
+Server.use('/institute', InstitutionRoutes);
 
 /**
  * viewer routes will be accessed by anyone using through the react frontend.
@@ -37,6 +39,21 @@ Server.use('/admin', AdminRoutes);
  */
 
 Server.use('/viewer', ViewerRoutes);
+
+/**
+ * facilitator routes are restricted to facilitator.
+ * The APIs in this path will allow the facilitator signin and change its profile.
+ */
+
+Server.use('/facilitator', FacilitatorRoutes);
+
+
+/**
+ * facilitator routes are restricted to facilitator.
+ * The APIs in this path will allow the facilitator trigger on demand jobs.
+ */
+
+Server.use('/job', JobRoutes);
 
 Server.listen(PORT, () => {
     logger.log(`http server listening on http://${HOST}:${PORT}` );

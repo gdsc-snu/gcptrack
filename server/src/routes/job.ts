@@ -3,13 +3,15 @@
  * terms of the BSD 3-Clause License.
  *
  * You should have received a copy of the BSD 3-Clause license with
- * this file. If not, please write to: , or visit :
+ * this file. If not, please write to: google.dsc@snuniv.ac.in, or visit :
  */
+
 import { Router } from 'express';
-import { GetInstituteData } from '../controllers/viewer';
+import { TriggerForceSync } from '../controllers/job';
+// import { signinController } from '../controllers/institution';
 
 const router =  Router();
 
-router.get('/:InstituteId/fetch-data', GetInstituteData);
+router.post('/force-sync', TriggerForceSync);
 
 export default router;
