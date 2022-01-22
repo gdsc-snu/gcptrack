@@ -6,18 +6,16 @@
  * this file. If not, please write to: , or visit :
  */
 import { Router } from 'express';
-// import { signinController } from '../controllers/admin';
+import { DeleteInstitute, GetInstituteDetails, RegisterInstitute, UpdateInstitute } from '../controllers/institution';
 
 const router =  Router();
 
-router.get('/fetch-institute');
+router.get('/fetch-institute', GetInstituteDetails);
 
-// router.post('/signin', signinController);
+router.post('/register-institutue', RegisterInstitute);
 
-router.post('/reg-institutue');
+router.patch('/:instituteId/update-institute', UpdateInstitute);
 
-router.patch('/:instituteId/update-institute');
-
-router.delete('/:instituteId/delete-institute');
+router.delete('/:instituteId/delete-institute', DeleteInstitute);
 
 export default router;

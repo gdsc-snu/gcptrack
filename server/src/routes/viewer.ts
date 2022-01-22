@@ -6,10 +6,13 @@
  * this file. If not, please write to: , or visit :
  */
 import { Router } from 'express';
-import { GetSheetData } from '../controllers/viewer';
+import { GetInstituteData,  GetParticipantProgress, SearchInstitute} from '../controllers/viewer';
 
 const router =  Router();
 
-router.get('/:InstituteId/get-sheet-data', GetSheetData);
+router.get('/:InstituteId/fetch-data', GetInstituteData);
 
+router.get('/:participantId/fetch-progress', GetParticipantProgress);
+
+router.get('/search-institute', SearchInstitute);
 export default router;
