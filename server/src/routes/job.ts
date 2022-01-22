@@ -8,7 +8,6 @@
 
 import { Router } from 'express';
 import { TriggerForceSync } from '../controllers/job';
-// import { signinController } from '../controllers/institution';
 
 const router =  Router();
 

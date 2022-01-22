@@ -12,7 +12,7 @@ export const GetInstituteDetails = (req: Request, res: Response, nextFn: NextFun
 
 }
 
-export const RegisterIntitute = ( req: Request, res: Response, nextFn: NextFunction ) => {
+export const RegisterInstitute = ( req: Request, res: Response, nextFn: NextFunction ) => {
 
 }
 

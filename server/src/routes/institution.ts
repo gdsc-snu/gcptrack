@@ -6,13 +6,13 @@
  * this file. If not, please write to: , or visit :
  */
 import { Router } from 'express';
-import { DeleteInstitute, GetInstituteDetails, RegisterIntitute, UpdateInstitute } from '../controllers/institution';
+import { DeleteInstitute, GetInstituteDetails, RegisterInstitute, UpdateInstitute } from '../controllers/institution';
 
 const router =  Router();
 
 router.get('/fetch-institute', GetInstituteDetails);
 
-router.post('/register-institutue', RegisterIntitute);
+router.post('/register-institutue', RegisterInstitute);
 
 router.patch('/:instituteId/update-institute', UpdateInstitute);
 
