@@ -1,7 +1,7 @@
 import colors from 'colors';
 
 const logger = {
-    log: (message: string) => {
+    info: (message: string) => {
         console.log( 'INFO: ', colors.cyan( Date().toString() ), colors.green(message) );
     },
     warn: (message: string) => {
