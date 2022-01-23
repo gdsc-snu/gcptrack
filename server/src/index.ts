@@ -21,7 +21,7 @@ connect("mongodb://localhost:27017/gcptrack", (err)=>{
     if(err)
         throw Error("Cannot connect to server");
     else
-        logger.log("Successfully connected to db");
+        logger.info("Successfully connected to db");
 })
 
 /**
@@ -55,8 +55,8 @@ Server.use('/facilitator', FacilitatorRoutes);
 
 Server.use('/job', JobRoutes);
 
-Server.listen(PORT, () => {
-    logger.log(`http server listening on http://${HOST}:${PORT}` );
+Server.listen(PORT, HOST, () => {
+    logger.info(`http server listening on http://${HOST}:${PORT}` );
 })
 
 JobScheduler()

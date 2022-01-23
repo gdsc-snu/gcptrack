@@ -16,6 +16,8 @@ const InstitutionDetailSchema = new Schema({
     }
 });
 
+InstitutionDetailSchema.index({name: "text"})
+
 const InstutionSchema = new Schema({
     details : InstitutionDetailSchema,
     sheetID: {

@@ -6,7 +6,7 @@ import InstituteModel from './../models/institutions';
 import { JobRunner } from './Job-runner';
 
 export async function JobScheduler() {
-    logger.log( `Scheduler started on ${Date().toString()}` );
+    logger.info( `Scheduler started on ${Date().toString()}` );
     const schedules: Array<JobLoaderParams> = await InstituteModel.find({}, { schedule: 1, _id: 1, sheetID: 1, name: '$details.name' });
     const Jobs = schedules.map((Ischedule) => {
         //create a new recurrence rule that will daily sync the sheet
