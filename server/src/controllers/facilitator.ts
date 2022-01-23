@@ -8,7 +8,7 @@ import logger from '../utils/logger';
 // This is a dummy secret, replace it with a key rotation mechanism.
 const Secret = 'mysupersecret-key';
 
-export const signinController = async (req: Request, res: Response) => {
+export const SigninFacilitator = async (req: Request, res: Response) => {
     try {
         const { token } = req.body;
 
@@ -69,4 +69,8 @@ export const signinController = async (req: Request, res: Response) => {
     } catch (error: any) {
         logger.error(error);
     }
+}
+
+export const UpdateFacilitator =async (req: Request, res: Response) => {
+    // TODO: Write logic that will allow facilitator to edit their profile
 }

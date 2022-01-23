@@ -3,13 +3,16 @@
  * terms of the BSD 3-Clause License.
  *
  * You should have received a copy of the BSD 3-Clause license with
- * this file. If not, please write to: , or visit :
+ * this file. If not, please write to: google.dsc@snuniv.ac.in, or visit :
  */
 
 import { NextFunction, Request, Response } from 'express';
 
+export const GetInstituteDetails = (req: Request, res: Response, nextFn: NextFunction) => {
 
-export const InstituteRegn = ( req: Request, res: Response, nextFn: NextFunction ) => {
+}
+
+export const RegisterInstitute = ( req: Request, res: Response, nextFn: NextFunction ) => {
 
 }
 
