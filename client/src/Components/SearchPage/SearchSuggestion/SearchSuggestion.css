@@ -1,0 +1,18 @@
+.suggestion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arrowicon {
+  height: 25px;
+  cursor: pointer;
+  color: #bbb;
+  margin-right: 40px;
+}
+
+.suggestion-name {
+  margin-left: 10px;
+  font-family: "roboto";
+  color: #333;
+  cursor: pointer;
+}
