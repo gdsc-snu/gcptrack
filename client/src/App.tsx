@@ -6,8 +6,8 @@ import {
   Switch
 } from 'react-router-dom';
 
-import Profile from './pages/Profile/Profile'
-import Dashboard from './pages/Dashboard/Dashboard'
+import Profile from './pages/Profile'
+import Dashboard from './pages/Dashboard'
 
 function App() {
   return (
