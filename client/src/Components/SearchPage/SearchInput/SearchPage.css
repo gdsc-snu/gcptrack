@@ -7,8 +7,6 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: bfbfbf;
-  /* margin-top: -10rem; */
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -41,7 +39,7 @@ body {
   width: 100%;
   outline: none;
   border: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #333;
 }
 .btn button {
