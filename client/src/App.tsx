@@ -8,26 +8,29 @@ import {
 
 import Profile from './pages/Profile'
 import Dashboard from './pages/Dashboard'
+import SearchPage from './Components/SearchPage/SearchInput/SearchPage';
 
 function App() {
   return (
     <div className="App">
       <>
-      <Router>
-        <Switch>
-          <Route path='/profile'>
-            <Profile/>
-          </Route>
-          <Route path='/dashboard'>
-            <Dashboard/>
-          </Route>
-          <Route path='/'>
-          </Route>
-        </Switch>
-      </Router>
+        <Router>
+          <Switch>
+            <Route path='/profile'>
+              <Profile />
+            </Route>
+            <Route path='/dashboard'>
+              <Dashboard />
+            </Route>
+            <Route path='/'>
+              <SearchPage />
+            </Route>
+          </Switch>
+        </Router>
       </>
     </div>
   );
 }
 
 export default App;
+
