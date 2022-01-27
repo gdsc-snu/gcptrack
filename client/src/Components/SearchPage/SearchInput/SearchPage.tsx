@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import SearchSuggestion from '../SearchSuggestion/SearchSuggestion';
 import './SearchPage.css'
 import SearchImage from "../../../Assets/Images/google-30days_img.jpeg"
@@ -26,7 +26,7 @@ const SearchPage = () => {
     return (
         <div className="search_page">
             <div className="search_image">
-                <img src={SearchImage} />
+                <img src={SearchImage} alt='searchImage' />
             </div>
             <div className="search_box">
                 <div className="input-container">
