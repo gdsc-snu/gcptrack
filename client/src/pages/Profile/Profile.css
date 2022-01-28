@@ -1,0 +1,11 @@
+.profilePage {
+  background-image: url('../../Assets/Images/backgroundImg.svg');
+  background-color: #e5e5e5;
+  position: absolute;
+  width: 1520px;
+  height: 800px;
+  /* left: -80px; */
+  /* top: 286px; */
+
+  /* opacity: 0.1; */
+}

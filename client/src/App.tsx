@@ -1,20 +1,19 @@
 import React from 'react';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Profile from './pages/Profile'
-import Dashboard from './pages/Dashboard'
-import SearchPage from './Components/SearchPage/SearchInput/SearchPage';
+// import Profile from './pages/Profile/Profile';
+// import Dashboard from './pages/Dashboard/Dashboard';
+// import SearchPage from './Components/SearchPage/SearchInput/SearchPage';
+
+import Navbar from './Components/Navbar/Navbar';
+import Profile from './pages/Profile/Profile';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <>
-        <Router>
+        {/* <Router>
           <Switch>
             <Route path='/profile'>
               <Profile />
@@ -26,11 +25,13 @@ function App() {
               <SearchPage />
             </Route>
           </Switch>
-        </Router>
+        </Router> */}
+
+        <Navbar />
+        <Profile />
       </>
     </div>
   );
 }
 
 export default App;
-

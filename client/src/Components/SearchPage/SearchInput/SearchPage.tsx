@@ -26,7 +26,7 @@ const SearchPage = () => {
     return (
         <div className="search_page">
             <div className="search_image">
-                <img src={SearchImage} />
+                <img src={SearchImage} alt="30 Days Of Google Cloud"/>
             </div>
             <div className="search_box">
                 <div className="input-container">
