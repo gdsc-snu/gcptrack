@@ -3,11 +3,13 @@ import LeaderboardCard from "../../Components/leaderboardCard/LeaderboardCard"
 import './Dashboard.css'
 import Card from "../../Components/WinnerCard/Card"
 import '../../Components/WinnerCard/Cardcss.css'
+import Menu from "../../Components/Menu/Menu"
 
 const Dshboard = () => {
     return (
         <>
             <Header />
+            <Menu/>
             <p className="winnerText"> Winners</p>
             <div className='centerDiv'>
                 <div className='wrapper'>
@@ -26,12 +28,14 @@ const Dshboard = () => {
                 </div>
                 <p className="winnerText"> All Users</p>
                 <div className="tableTitle"> <p>Rank</p> <p className='name'>Name</p><p>Rating</p><p>Milestone</p><p>Score</p></div>
+                <div className="leaderboardDiv">
                 <LeaderboardCard />
                 <LeaderboardCard />
                 <LeaderboardCard />
                 <LeaderboardCard />
                 <LeaderboardCard />
                 <LeaderboardCard />
+                </div>
             </div>
         </>
     )

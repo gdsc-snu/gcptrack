@@ -10,7 +10,6 @@
     width: 60vw;
     height: 80vh;
     margin-left: 20vw;
-    overflow:auto;
 }
 
 .tableTitle{
@@ -23,4 +22,8 @@
 .name{
     margin-left: -5rem;
     margin-right: 8rem;
+}
+
+.leaderboardDiv{
+    overflow: scroll;
 }
