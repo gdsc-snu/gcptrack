@@ -2,12 +2,9 @@ import React from 'react';
 import './App.css';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// import Profile from './pages/Profile/Profile';
-// import Dashboard from './pages/Dashboard/Dashboard';
-// import SearchPage from './Components/SearchPage/SearchInput/SearchPage';
-
-import Navbar from './Components/Navbar/Navbar';
 import Profile from './pages/Profile/Profile';
+import Dashboard from './pages/Dashboard/Dashboard';
+import SearchPage from './Components/SearchPage/SearchInput/SearchPage';
 
 function App() {
   return (
@@ -27,7 +24,6 @@ function App() {
           </Switch>
         </Router> */}
 
-        <Navbar />
         <Profile />
       </>
     </div>

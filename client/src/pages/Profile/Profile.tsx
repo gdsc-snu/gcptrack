@@ -1,11 +1,11 @@
-import React from 'react';
-import ProfileHeading from '../../Components/ProfileHeading/ProfileHeading';
-import './Profile.css';
+import Header from '../../Components/Header/Header';
+import Menu from '../../Components/Menu/Menu';
 
 const Profile = () => {
   return (
-    <div className='profilePage'>
-      <ProfileHeading />
+    <div>
+      <Header />
+      <Menu />
     </div>
   );
 };
