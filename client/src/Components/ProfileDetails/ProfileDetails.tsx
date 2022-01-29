@@ -7,7 +7,7 @@ function ProfileDetail({ imageurl, name, personaldetail, score, badges }: any) {
   return (
     <div className='main'>
       <div className='profilecard'>
-        <img className='image' src={imageurl} alt='' />
+        <img className='profileimage' src={imageurl} alt='' />
         <div className='profileinfo'>
           <h3 className='profilename'>{name}</h3>
           <h3>{personaldetail}</h3>
