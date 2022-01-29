@@ -25,5 +25,15 @@
 }
 
 .leaderboardDiv {
-  overflow: scroll;
+  height: 40vh;
+  overflow-y: auto;
+}
+
+.leaderboardDiv::-webkit-scrollbar {
+  width: 11px;
+}
+
+.leaderboardDiv {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }

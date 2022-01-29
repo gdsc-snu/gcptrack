@@ -1,18 +1,18 @@
-.menuDiv{
-    position :absolute;
-    left: 0;
-    width : 10vw;
-    height: 90vh;
-    margin :1rem;
-    display: flex;
-    flex-direction: column;
+.menuDiv {
+  position: absolute;
+  left: 0;
+  width: 10vw;
+  height: 90vh;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.menuImage{
-    height: 3.5rem;
-    margin: 2rem;
+.menuImage {
+  height: 3.5rem;
+  margin: 2rem;
 }
 
-.top{
-    margin-top: 20rem;
+.top {
+  margin-top: 20rem;
 }
