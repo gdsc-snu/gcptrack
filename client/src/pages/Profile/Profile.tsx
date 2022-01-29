@@ -1,8 +1,7 @@
 import Header from '../../Components/Header/Header';
 import Menu from '../../Components/Menu/Menu';
 import ProfileDetail from '../../Components/ProfileDetails/ProfileDetails';
-import ProfileTrack from '../../Components/ProfileTrack/ProfileTrack';
-import { LabDetails } from '../../data/labdetails';
+import TrackData from '../../Components/ProfileTrack/TrackData';
 import './Profile.css';
 
 const Profile = () => {
@@ -19,12 +18,8 @@ const Profile = () => {
           badges='3'
         />
       </div>
-      <div className='labdetailcss'>
-        <div className='scrolllab'>
-          {LabDetails.map((labdetail) => (
-            <ProfileTrack {...labdetail} />
-          ))}
-        </div>
+      <div>
+        <TrackData />
       </div>
     </div>
   );

@@ -17,16 +17,3 @@
   margin-left: 26.5%;
   border-radius: 20px;
 }
-
-.scrolllab {
-  height: 35rem;
-  overflow-y: auto;
-}
-.scrolllab::-webkit-scrollbar {
-  width: 11px;
-}
-
-.scrolllab {
-  scrollbar-width: thin;
-  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
-}
