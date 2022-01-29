@@ -1,18 +1,14 @@
 import React from 'react';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Profile from './pages/Profile/Profile'
-import Dashboard from './pages/Dashboard/Dashboard'
+import Profile from './pages/Profile/Profile';
+import Dashboard from './pages/Dashboard/Dashboard';
 import SearchPage from './Components/SearchPage/SearchInput/SearchPage';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <>
         <Router>
           <Switch>
@@ -33,4 +29,3 @@ function App() {
 }
 
 export default App;
-

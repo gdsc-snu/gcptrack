@@ -1,0 +1,23 @@
+.margin-20 {
+  margin-left: 2rem;
+}
+
+/* .main_col {
+  background: #f3f8ff;
+  border-radius: 8px;
+  width: 54rem;
+} */
+
+.labdetails {
+  text-align: left;
+  margin-left: 2rem;
+}
+
+.labdetails > p {
+  font-size: 24px;
+  color: #4285f4;
+}
+
+.trackdetails {
+  display: flex;
+}

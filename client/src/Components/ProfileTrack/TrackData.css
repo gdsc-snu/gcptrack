@@ -1,0 +1,59 @@
+.main_Box {
+  background: #f3f8ff;
+  border-radius: 8px;
+  width: 54rem;
+}
+
+.trackName {
+  font-size: 24px;
+  color: #4285f4;
+  display: flex;
+  margin-left: 1.8rem;
+  padding-top: 1.5rem;
+}
+
+.trackdetails {
+  display: flex;
+}
+
+.track2 {
+  margin-top: 2rem;
+  border-top: 1rem solid white;
+}
+
+.scrolllab {
+  height: 36rem;
+  overflow-y: auto;
+}
+.scrolllab::-webkit-scrollbar {
+  width: 11px;
+}
+
+.scrolllab {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+.circular {
+  margin-left: 40rem;
+  width: 130px;
+  height: 130px;
+  font-size: 20px;
+  dominant-baseline: middle;
+  text-anchor: middle;
+  margin-top: -11rem;
+}
+
+.circular .CircularProgressbar-path {
+  stroke: #4285f4;
+}
+.circular .CircularProgressbar-trail {
+  stroke: #e8f0ff;
+}
+.circular .CircularProgressbar-text {
+  fill: #4285f4;
+  text-align: center;
+}
+.circular .CircularProgressbar-background {
+  fill: #4285f4;
+}
