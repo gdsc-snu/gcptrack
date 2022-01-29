@@ -5,28 +5,28 @@
   width: 100%;
   height: 100%;
 }
-.main_col1 {
-  background: #f3f8ff;
-  border-radius: 8px;
-  width: 60rem;
-  height: auto;
-}
 
-.main_col1 > p {
-  font-size: 24px;
-  color: #4285f4;
-  text-align: left;
-  margin-left: 2rem;
-}
-
-.main_flex {
+.labdetailcss {
+  background-color: white;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
-  /* margin-top: 4vw; */
+  margin-top: 2vw;
+  width: 56rem;
+  margin-left: 26.5%;
+  border-radius: 20px;
 }
 
-.componentcss {
-  background-color: green;
+.scrolllab {
+  height: 35rem;
+  overflow-y: auto;
+}
+.scrolllab::-webkit-scrollbar {
+  width: 11px;
+}
+
+.scrolllab {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }

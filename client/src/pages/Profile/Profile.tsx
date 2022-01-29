@@ -2,7 +2,7 @@ import Header from '../../Components/Header/Header';
 import Menu from '../../Components/Menu/Menu';
 import ProfileDetail from '../../Components/ProfileDetails/ProfileDetails';
 import ProfileTrack from '../../Components/ProfileTrack/ProfileTrack';
-import Trackdetails from '../../Components/ProfileTrack/Trackdetails';
+import { LabDetails } from '../../data/labdetails';
 import './Profile.css';
 
 const Profile = () => {
@@ -19,13 +19,11 @@ const Profile = () => {
           badges='3'
         />
       </div>
-      <div className='main_flex'>
-        <div className='main_col1'>
-          <p>Track1</p>
-
-          <div>
-            <Trackdetails />
-          </div>
+      <div className='labdetailcss'>
+        <div className='scrolllab'>
+          {LabDetails.map((labdetail) => (
+            <ProfileTrack {...labdetail} />
+          ))}
         </div>
       </div>
     </div>
