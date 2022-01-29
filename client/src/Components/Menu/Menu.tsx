@@ -6,11 +6,11 @@ import ClubInfo from '../../pictures/ClubInfo.svg'
 
 
 const Menu = () => {
-    return(
-        <div className='menuDiv'> 
+    return (
+        <div className='menuDiv'>
             <img src={leaderboardLogo} className='menuImage top' alt='leaderboard' />
-            <img src={AdminInfo} className='menuImage' alt='adminInfo'/>
-            <img src={ClubInfo} className='menuImage' alt='clubInfo'/>
+            <img src={AdminInfo} className='menuImage' alt='adminInfo' />
+            <img src={ClubInfo} className='menuImage' alt='clubInfo' />
         </div>
     )
 }

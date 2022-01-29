@@ -9,7 +9,7 @@ const Dshboard = () => {
     return (
         <>
             <Header />
-            <Menu/>
+            <Menu />
             <p className="winnerText"> Winners</p>
             <div className='centerDiv'>
                 <div className='wrapper'>
@@ -29,16 +29,16 @@ const Dshboard = () => {
                 <p className="winnerText"> All Users</p>
                 <div className="tableTitle"> <p>Rank</p> <p className='name'>Name</p><p>Rating</p><p>Milestone</p><p>Score</p></div>
                 <div className="leaderboardDiv">
-                <LeaderboardCard />
-                <LeaderboardCard />
-                <LeaderboardCard />
-                <LeaderboardCard />
-                <LeaderboardCard />
-                <LeaderboardCard />
+                    <LeaderboardCard />
+                    <LeaderboardCard />
+                    <LeaderboardCard />
+                    <LeaderboardCard />
+                    <LeaderboardCard />
+                    <LeaderboardCard />
                 </div>
             </div>
         </>
-    )
+    );
 }
 
-export default Dshboard
+export default Dshboard;
