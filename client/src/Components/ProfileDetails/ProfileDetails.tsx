@@ -1,4 +1,5 @@
 import React from 'react';
+import StarRating from '../StarRating/StarRating';
 // import profile from '../../Assets/Images/profile.svg';
 
 import './ProfileDetails.css';
@@ -15,6 +16,9 @@ function ProfileDetail({ imageurl, name, personaldetail, score, badges }: any) {
             <h4>
               Score : {score}
               <span className='profilebadges'> Badges : {badges}/50</span>
+              <span className='margin-50'>
+                <StarRating />
+              </span>
             </h4>
           </div>
         </div>
