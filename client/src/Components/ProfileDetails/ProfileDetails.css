@@ -5,6 +5,9 @@
   height: 210px;
   left: 281px;
 } */
+.margin-50 {
+  margin-left: 8rem;
+}
 .main {
   display: flex;
   flex-direction: column;
@@ -20,7 +23,7 @@
   color: white;
   border-radius: 10px;
   text-align: left;
-  font-family: 'Product Sans';
+  font-family: "Product Sans";
   padding: 1rem;
   border-bottom-left-radius: 10px;
 }
