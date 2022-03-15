@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 4vw;
+  margin-top: 2rem;
 }
 
 .profilecard {
@@ -20,7 +20,6 @@
   color: white;
   border-radius: 10px;
   text-align: left;
-  font-family: 'Product Sans';
   padding: 1rem;
   border-bottom-left-radius: 10px;
 }
