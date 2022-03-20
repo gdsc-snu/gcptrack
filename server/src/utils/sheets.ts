@@ -1,5 +1,6 @@
 import { GoogleAuth } from 'google-auth-library';
 import { google, sheets_v4 } from 'googleapis';
+import logger from './logger';
 
 const auth = new google.auth.GoogleAuth({
     keyFile : '/home/latitude/work/gcptrack/server/src/keys/keys.json',
@@ -32,18 +33,23 @@ export async function getDataFromSheet( spreadsheetId: string, tableTitle: strin
 }
 
 export async function getSheetTitles( spreadsheetId: string ) {
-    const authClientObject = await auth.getClient();
+    try {
+        const authClientObject = await auth.getClient();
 
-    //Google sheet instance
-    const googleSheetInstance = google.sheets({ version: "v4", auth: authClientObject });
+        //Google sheet instance
+        const googleSheetInstance = google.sheets({ version: "v4", auth: authClientObject });
 
-    //Get metadata about sheet
-    const sheetInfo = await googleSheetInstance.spreadsheets.get({
-        auth,
-        spreadsheetId
-    });
+        //Get metadata about sheet
+        const sheetInfo = await googleSheetInstance.spreadsheets.get({
+            auth,
+            spreadsheetId
+        });
 
-    return extractSheetTitles(sheetInfo?.data?.sheets!);
+        return extractSheetTitles(sheetInfo?.data?.sheets!);
+    } catch (error) {
+        logger.error(`Error occured while gettins sheet titles`);
+        throw error;
+    }
 }
 
 function extractSheetTitles(sheets: sheets_v4.Schema$Sheet[]): Array<string> {

@@ -1,0 +1,163 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "gcptrack backend is responsible for providing data to the frontend and authentication.",
+        "version": "1.0.0",
+        "title": "gcptrack App Server",
+        "contact": {
+            "email": "osamabinjunaid36@gmail.com"
+        }
+    },
+    "host": "localhost:7686",
+    "basePath": "/auth",
+    "tags": [
+        {
+            "name": "Institute",
+            "description": "Instution routes are restricted to facilitator. The APIs in this path will allow the facilitator to link a google sheet add / update institution details, and disable the institution account."
+        },
+        {
+            "name": "Viewer",
+            "description": "Viewer routes will be accessed by anyone using the react frontend. The APIs in this path will provide data for dashboard and participants profile."
+        },
+        {
+            "name": "Facilitator",
+            "description": "Facilitator routes are restricted to facilitator. The APIs in this path will allow the facilitator signin and change its profile."
+        },
+        {
+            "name": "Job",
+            "description": "Job routes are restricted to facilitator. The APIs in this path will allow the facilitator to trigger an on demand sync of their sheet."
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/facilitator/signin": {
+            "get": {
+                "tags": [
+                    "Facilitator"
+                ],
+                "summary": "Login using google account",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {}
+            }
+        },
+        "/facilitator/edit": {
+            "patch": {
+                "tags": [
+                    "Facilitator"
+                ],
+                "summary": "Edit facilitator profile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {}
+            }
+        },
+        "/job/force-sync": {
+            "post": {
+                "tags": [
+                    "Job"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/viewer/{InstituteId}/fetch-data": {
+            "get": {
+                "tags": [
+                    "Viewer"
+                ]
+            }
+        },
+        "/viewer/{participantId}/fetch-progress": {
+            "get": {
+                "tags": [
+                    "Viewer"
+                ]
+            }
+        },
+        "/viewer/search-institute": {
+            "get": {
+                "tags": [
+                    "Viewer"
+                ]
+            }
+        },
+        "/institute/fetch-institute": {
+            "get": {
+                "tags": [
+                    "Institute"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/institute/register-institutue": {
+            "post": {
+                "tags": [
+                    "Institute"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/institute/{instituteId}/update-institute": {
+            "patch": {
+                "tags": [
+                    "Institute"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/institute/{instituteId}/delete-institute": {
+            "delete": {
+                "tags": [
+                    "Institute"
+                ],
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+    },
+    "securityDefinitions": {
+        "JWT": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

@@ -1,6 +1,8 @@
 
 import { connect } from 'mongoose';
 import express from 'express';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from './docs/swagger.json';
 
 import FacilitatorRoutes from './routes/facilitator';
 import { HOST, PORT } from './configs/server-config';
@@ -16,6 +18,8 @@ const Server = express();
 
 Server.use(express.json());
 Server.use(express.urlencoded({ extended: true }));
+Server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 connect("mongodb://localhost:27017/gcptrack", (err)=>{
     if(err)
@@ -33,9 +37,8 @@ connect("mongodb://localhost:27017/gcptrack", (err)=>{
 Server.use('/institute', InstitutionRoutes);
 
 /**
- * viewer routes will be accessed by anyone using through the react frontend.
- * The APIs in this path will allow the facilitator to link a google sheet.
- * disable the institution account, update institutional information and many more.
+ * viewer routes will be accessed by anyone using the react frontend.
+ * The APIs in this path will provide data for dashboard and participants profile.
  */
 
 Server.use('/viewer', ViewerRoutes);
@@ -49,8 +52,8 @@ Server.use('/facilitator', FacilitatorRoutes);
 
 
 /**
- * facilitator routes are restricted to facilitator.
- * The APIs in this path will allow the facilitator trigger on demand jobs.
+ * job routes are restricted to facilitator.
+ * The APIs in this path will allow the facilitator to trigger on demand sync of their sheet.
  */
 
 Server.use('/job', JobRoutes);
