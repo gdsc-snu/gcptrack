@@ -14,8 +14,8 @@ router.get('/fetch-institute', GetInstituteDetails);
 
 router.post('/register-institutue', RegisterInstitute);
 
-router.patch('/:instituteId/update-institute', UpdateInstitute);
+router.patch('/update-institute', UpdateInstitute);
 
-router.delete('/:instituteId/delete-institute', DeleteInstitute);
+router.delete('/delete-institute', DeleteInstitute);
 
 export default router;

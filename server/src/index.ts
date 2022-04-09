@@ -21,7 +21,7 @@ Server.use(express.urlencoded({ extended: true }));
 Server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
-connect("mongodb://localhost:27017/gcptrack", (err)=>{
+connect("mongodb+srv://shams:nYrfl3IiVLcBpdnp@handymancluster.cml1v.mongodb.net/gcp_track?retryWrites=true&w=majority", (err)=>{
     if(err)
         throw Error("Cannot connect to server");
     else
