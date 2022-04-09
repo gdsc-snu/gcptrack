@@ -2,14 +2,15 @@
   background: #f3f8ff;
   border-radius: 8px;
   width: 54rem;
+  margin: 2rem;
 }
 
 .trackName {
   font-size: 24px;
   color: #4285f4;
   display: flex;
-  margin-left: 1.8rem;
-  padding-top: 1.5rem;
+  margin:0 0 0 1.8rem;
+  padding-top: 1rem;
 }
 
 .trackdetails {
@@ -17,13 +18,12 @@
 }
 
 .track2 {
-  margin-top: 2rem;
-  border-top: 1rem solid white;
+  margin: 2rem 0 5rem 0;
 }
 
 .scrolllab {
-  height: 36rem;
-  overflow-y: auto;
+  height: 54vh;
+  overflow-y: scroll;
 }
 .scrolllab::-webkit-scrollbar {
   width: 11px;
@@ -36,8 +36,8 @@
 
 .circular {
   margin-left: 40rem;
-  width: 130px;
-  height: 130px;
+  width: 100px;
+  height: 100px;
   font-size: 20px;
   dominant-baseline: middle;
   text-anchor: middle;

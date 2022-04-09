@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Profile from './pages/Profile/Profile';
 import Dashboard from './pages/Dashboard/Dashboard';
-import SearchPage from './Components/SearchPage/SearchInput/SearchPage';
+import SearchPage from './pages/Search/SearchInput/SearchPage';
 
 function App() {
   return (

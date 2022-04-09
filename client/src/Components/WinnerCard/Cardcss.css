@@ -5,19 +5,27 @@
   color: white;
   border-radius: 10px;
   text-align: left;
-  font-family: 'Product Sans';
+  font-family: "Product Sans";
   padding: 1rem;
   border-bottom-left-radius: 10px;
 }
-.img {
-  width: 50px;
-  height: 50px;
-  border-color: none;
+.card-margin {
+  margin-left: 7rem;
+  margin-top: -7rem;
+  line-height: 10px;
+}
+
+.card_image img {
+  width: 35%;
+  height: auto;
   border-width: 1px;
   border-style: solid;
   border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
 }
-.name {
+/* .name {
   text-align: center;
 }
 .score {
@@ -25,7 +33,7 @@
 }
 .badges {
   text-align: left;
-}
+} */
 .wrapper {
   display: flex;
   justify-content: space-between;
