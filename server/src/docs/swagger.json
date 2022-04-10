@@ -85,14 +85,44 @@
             "get": {
                 "tags": [
                     "Viewer"
-                ]
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "InstituteId",
+                        "description": "_id of the institution to get details"
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
             }
         },
         "/viewer/{participantId}/fetch-progress": {
             "get": {
                 "tags": [
                     "Viewer"
-                ]
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "participantId",
+                        "description": "email of the particular participant"
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
             }
         },
         "/viewer/search-institute": {
