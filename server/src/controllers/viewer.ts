@@ -9,9 +9,21 @@
 import { NextFunction, Request, Response } from 'express';
 import Institutions from '../models/institutions';
 import logger from '../utils/logger';
+import daily_report from '../models/dailyReport'
 
-export const GetInstituteData = (req: Request, res: Response, nextFn: NextFunction) => {
-    // This api will return latest data to show in dashboard
+export const GetInstituteData = async (req: Request, res: Response, nextFn: NextFunction) => {
+    try {
+        const newInstituteData = await daily_report.find({ "institutionId": req.params.InstituteId}, { _id: 0, "report": 1 });
+        res.send({
+            message: 'institution details are as follows:',
+            body: newInstituteData
+        });
+    } catch (error: any) {
+        logger.error(error);
+        res.status(500).send({
+            message: error.message
+        });
+    };
 }
 
 export const SearchInstitute = async (req: Request, res: Response, nextFn: NextFunction) => {
@@ -19,7 +31,7 @@ export const SearchInstitute = async (req: Request, res: Response, nextFn: NextF
         const instituteQuery = String(req.query.name) || '';
         const foundData = await Institutions.find(
             { "details.name": RegExp(instituteQuery, 'ig') },
-            { _id: 0, "details.name": 1 }
+            { _id: 1, "details.name": 1 }
         );
         res.json(foundData);
     } catch (err: any){
@@ -29,6 +41,25 @@ export const SearchInstitute = async (req: Request, res: Response, nextFn: NextF
     }
 }
 
-export const GetParticipantProgress = (req: Request, res: Response, nextFn: NextFunction) => {
-    // This api will return participants progress data
+export const GetParticipantProgress = async (req: Request, res: Response, nextFn: NextFunction) => {
+    try {
+        const newParticipantData = await daily_report.find({ "report.email": req.params.participantId}, { 
+            "_id" : 0,
+            "report": { 
+                $elemMatch: 
+                    { 
+                        email: req.params.participantId
+                    } 
+            } 
+        });
+        res.send({
+            message: 'participant details are as follows:',
+            body: newParticipantData
+        });
+    } catch (error: any) {
+        logger.error(error);
+        res.status(500).send({
+            message: error.message
+        });
+    };
 }

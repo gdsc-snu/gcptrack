@@ -9,7 +9,7 @@
         }
     },
     "host": "localhost:7686",
-    "basePath": "/auth",
+    "basePath": "/",
     "tags": [
         {
             "name": "Institute",
@@ -85,14 +85,44 @@
             "get": {
                 "tags": [
                     "Viewer"
-                ]
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "InstituteId",
+                        "description": "_id of the institution to get details"
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
             }
         },
         "/viewer/{participantId}/fetch-progress": {
             "get": {
                 "tags": [
                     "Viewer"
-                ]
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "participantId",
+                        "description": "email of the particular participant"
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
             }
         },
         "/viewer/search-institute": {
@@ -111,7 +141,25 @@
                     {
                         "JWT": []
                     }
-                ]
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "description": "_id of the institution to get details"
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
             }
         },
         "/institute/register-institutue": {
@@ -123,10 +171,31 @@
                     {
                         "JWT": []
                     }
-                ]
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Send institution details to save them in db",
+                        "schema": {
+                            "$ref": "#/definitions/Institution"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
             }
         },
-        "/institute/{instituteId}/update-institute": {
+        "/institute/update-institute": {
             "patch": {
                 "tags": [
                     "Institute"
@@ -135,10 +204,36 @@
                     {
                         "JWT": []
                     }
-                ]
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "description": "_id of the institution"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Send institution details to update them in db",
+                        "schema": {
+                            "$ref": "#/definitions/Institution"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
             }
         },
-        "/institute/{instituteId}/delete-institute": {
+        "/institute/delete-institute": {
             "delete": {
                 "tags": [
                     "Institute"
@@ -147,11 +242,74 @@
                     {
                         "JWT": []
                     }
-                ]
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "description": "_id of the institution to get details"
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
             }
         }
     },
     "definitions": {
+        "Institution": {
+            "type": "object",
+            "properties": {
+                "details": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "logo": {
+                            "type": "string"
+                        },
+                        "state": {
+                            "type": "string"
+                        },
+                        "country": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "sheetID": {
+                    "type": "string"
+                },
+                "facilitator": {
+                    "type": "string"
+                },
+                "schedule": {
+                    "type": "object",
+                    "properties": {
+                        "hour": {
+                            "type": "number",
+                            "default": 17
+                        },
+                        "minute": {
+                            "type": "number",
+                            "default": 30
+                        }
+                    }
+                },
+                "isActive": {
+                    "type": "boolean",
+                    "default": true
+                }
+            }
+        }
     },
     "securityDefinitions": {
         "JWT": {

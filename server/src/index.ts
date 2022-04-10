@@ -1,4 +1,4 @@
-
+require('dotenv').config()
 import { connect } from 'mongoose';
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
@@ -21,7 +21,7 @@ Server.use(express.urlencoded({ extended: true }));
 Server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
-connect("mongodb://localhost:27017/gcptrack", (err)=>{
+connect(process.env.MONGO_URI || "" , (err)=>{
     if(err)
         throw Error("Cannot connect to server");
     else

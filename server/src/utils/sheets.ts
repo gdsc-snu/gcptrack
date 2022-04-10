@@ -3,7 +3,7 @@ import { google, sheets_v4 } from 'googleapis';
 import logger from './logger';
 
 const auth = new google.auth.GoogleAuth({
-    keyFile : '/home/latitude/work/gcptrack/server/src/keys/keys.json',
+    keyFile : '/home/suchetam/Desktop/work/gcptrack/server/src/keys/keys.json',
     scopes: "https://www.googleapis.com/auth/spreadsheets",
 });
 
