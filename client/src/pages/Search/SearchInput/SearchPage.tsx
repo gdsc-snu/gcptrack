@@ -3,6 +3,7 @@ import SearchSuggestion from '../SearchSuggestion/SearchSuggestion';
 import './SearchPage.css';
 import SearchImage from '../../../Assets/Images/google-30days_img.jpeg';
 import SearchIcon from '../../../Assets/Icons/search-icon.png';
+import Modal from '../../../Components/Modals/Modal';
 
 const SearchPage = () => {
   const [searchInput, setSearchInput] = useState('');
@@ -21,11 +22,22 @@ const SearchPage = () => {
           setInstitutions(data);
           console.log(data);
         });
-      },
+      }
     );
   };
+
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <div className='search_page'>
+      <button
+        className='openModalBtn'
+        onClick={() => {
+          setModalOpen(true);
+        }}
+      >
+        Login as Facilitator
+      </button>
+      {modalOpen && <Modal closeModal={setModalOpen} />}
       <div className='search_image'>
         <img src={SearchImage} alt='searchImage' />
       </div>
