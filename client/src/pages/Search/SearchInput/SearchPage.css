@@ -1,5 +1,6 @@
 body {
   overflow: hidden;
+  
 }
 .search_page {
   display: flex;
@@ -11,6 +12,17 @@ body {
   border-bottom-right-radius: 0;
 }
 
+.openModalBtn {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background-color: cornflowerblue;
+  color: white;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: 50px;
+  }
 .search_image img {
   width: 100%;
   max-width: 40rem;
