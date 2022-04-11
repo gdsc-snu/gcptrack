@@ -12,7 +12,7 @@ export const SigninFacilitator = async (req: Request, res: Response) => {
     try {
         const { token } = req.body;
 
-        //Validate if the token by calling the google Oauth Api
+        //Validate the token by calling the google Oauth Api
         const userInfo = await validateUserInfo(token);
 
         //Check if any user exist with this googleId
@@ -43,31 +43,34 @@ export const SigninFacilitator = async (req: Request, res: Response) => {
                 status: true,
                 isNew: true,
                 token: token,
-                user: { name, email },
+                user: { userName, email },
                 userId: savedUser._id,
                 message: "New User created sucessfully",
             })
         }
         else {
 
-            const { displayPicture, name, email } = user;
-
+            const { displayPicture, userName, email } = user;
 
             //generate a jsonwebtoken
-            const token = jsonwebtoken.sign(JSON.stringify({ displayPicture, name, email }), Secret);
+            const token = jsonwebtoken.sign(JSON.stringify({ displayPicture, userName, email }), Secret);
 
             // Send details to the caller
             res.json({
                 status: true,
                 isNew: false,
                 token: token,
-                user: { displayPicture, name, email },
+                user: { displayPicture, userName, email },
                 userId: user._id,
-                message: "User already exist", //DONE: Generate a token for the user, and send it to the frontend
+                message: "Welcome back", //DONE: Generate a token for the user, and send it to the frontend
             })
         }
     } catch (error: any) {
         logger.error(error);
+        res.status(500)
+            .send({
+                message: 'An error occured'
+            })
     }
 }
 

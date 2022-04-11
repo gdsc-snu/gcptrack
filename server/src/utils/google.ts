@@ -14,6 +14,6 @@ export async function validateUserInfo(token: any) {
         const googleUser = await response.data;
         return googleUser;
     } catch (error) {
-        // console.error(error)
+        console.error(error)
     }
 }
