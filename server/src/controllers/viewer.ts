@@ -43,15 +43,15 @@ export const SearchInstitute = async (req: Request, res: Response, nextFn: NextF
 
 export const GetParticipantProgress = async (req: Request, res: Response, nextFn: NextFunction) => {
     try {
-        const newParticipantData = await daily_report.find({ "report.email": req.params.participantId}, { 
+        const newParticipantData = await daily_report.find({ "institutionId" : req.params.InstituteId , "report.name": req.params.participantId }, { 
             "_id" : 0,
             "report": { 
-                $elemMatch: 
+                   $elemMatch: 
                     { 
-                        email: req.params.participantId
-                    } 
+                        name: req.params.participantId
+                    },
             } 
-        });
+        }).sort({ "createdAt" : -1}).limit(1);
         res.send({
             message: 'participant details are as follows:',
             body: newParticipantData

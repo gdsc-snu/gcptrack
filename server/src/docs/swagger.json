@@ -103,7 +103,7 @@
                 }
             }
         },
-        "/viewer/{participantId}/fetch-progress": {
+        "/viewer/{InstituteId}/{participantId}/fetch-progress": {
             "get": {
                 "tags": [
                     "Viewer"
@@ -115,7 +115,12 @@
                     {
                         "in": "path",
                         "name": "participantId",
-                        "description": "email of the particular participant"
+                        "description": "name of the particular participant"
+                    },
+                    {
+                        "in": "path",
+                        "name": "InstituteId",
+                        "description": "_id of the institution to get details"
                     }
                 ],
                 "responses": {
