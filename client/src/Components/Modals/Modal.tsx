@@ -1,5 +1,30 @@
-import React from 'react';
-import './Modal.css';
+import React from "react";
+import "./Modal.css";
+import { GoogleLogin } from "react-google-login";
+
+async function handleLoginSuccess(loginResponse: any){
+
+  const response = await fetch('/facilitator/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        {
+          token: {
+              accessToken: loginResponse.tokenObj.access_token,
+              tokenId: loginResponse.tokenObj.id_token
+          }
+        }
+      )
+    });
+    console.log(await response.json());
+    //TODO:save this token to localstorage and state and let the user login
+}
+
+async function handleLoginError(error: any){
+  console.error(error)
+}
 
 function Modal({ closeModal }: any) {
   return (
@@ -29,7 +54,13 @@ function Modal({ closeModal }: any) {
           >
             Cancel
           </button>
-          <button>Continue</button>
+          <GoogleLogin
+            clientId="363336576338-cdn32827l9fthvubbhpenn98eb649lsd.apps.googleusercontent.com"
+            buttonText="Login with Google"
+            onSuccess={handleLoginSuccess}
+            onFailure={handleLoginError}
+            cookiePolicy={"single_host_origin"}
+          />
         </div>
       </div>
     </div>

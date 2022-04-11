@@ -19,7 +19,7 @@ export const FacilitatorSchema = new Schema({
     displayPicture: {
         type: String,
     },
-    isIntitutionConfigured: {
+    isInstitutionConfigured: {
         type: Boolean,
         default: false
     },
