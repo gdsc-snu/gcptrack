@@ -65,8 +65,26 @@
                         "JWT": []
                     }
                 ],
-                "parameters": [],
-                "responses": {}
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "description": "facilitator _id"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Send facilitator details",
+                        "schema": {
+                            "$ref": "#/definitions/Facilitators"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
             }
         },
         "/job/force-sync": {
@@ -312,6 +330,34 @@
                 "isActive": {
                     "type": "boolean",
                     "default": true
+                }
+            }
+        },
+        "Facilitators": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                            },
+                "googleId": {
+                    "type": "string",
+                    "index": {
+                        "unique": true
+                    }
+                },
+                "displayPicture": {
+                    "type": "string"
+                },
+                "isIntitutionConfigured": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "institution": {
+                    "type": "ObjectId",
+                    "ref": "institutions"
                 }
             }
         }
