@@ -9,7 +9,7 @@ const Dshboard = () => {
   return (
     <>
       <Header />
-      <Menu />
+      {/* <Menu /> */}
       <p className='winnerText'> Winners</p>
       <div className='centerDiv'>
         <div className='wrapper'>
