@@ -12,7 +12,7 @@ const router =  Router();
 
 router.get('/:InstituteId/fetch-data', GetInstituteData);
 
-router.get('/:participantId/fetch-progress', GetParticipantProgress);
+router.get('/:InstituteId/:participantId/fetch-progress', GetParticipantProgress);
 
 router.get('/search-institute', SearchInstitute);
 export default router;
