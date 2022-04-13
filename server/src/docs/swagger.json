@@ -68,11 +68,7 @@
                 "parameters": [
                     {
                         "in": "query",
-<<<<<<< Updated upstream
-                        "name": "id",
-=======
                         "name": "facilitatorId",
->>>>>>> Stashed changes
                         "description": "facilitator _id"
                     },
                     {
@@ -342,29 +338,6 @@
             "properties": {
                 "name": {
                     "type": "string"
-<<<<<<< Updated upstream
-                },
-                "email": {
-                    "type": "string"
-                            },
-                "googleId": {
-                    "type": "string",
-                    "index": {
-                        "unique": true
-                    }
-                },
-                "displayPicture": {
-                    "type": "string"
-                },
-                "isIntitutionConfigured": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "institution": {
-                    "type": "ObjectId",
-                    "ref": "institutions"
-=======
->>>>>>> Stashed changes
                 }
             }
         }
