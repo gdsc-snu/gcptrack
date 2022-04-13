@@ -33,7 +33,7 @@ export const SigninFacilitator = async (req: Request, res: Response) => {
             console.info(`New user with username "${savedUser.name}" created.`);
 
             //extract details
-            const { displayPicture, userName, email } = savedUser;
+            const { displayPicture, userName, email, isInstitutionConfigured } = savedUser;
 
             // generate a jsonwebtoken
             const token = jsonwebtoken.sign(JSON.stringify( { displayPicture, userName, email } ), Secret);
@@ -42,15 +42,16 @@ export const SigninFacilitator = async (req: Request, res: Response) => {
             res.json({
                 status: true,
                 isNew: true,
+                isInstitutionConfigured: isInstitutionConfigured,
                 token: token,
-                user: { userName, email },
+                user: { displayPicture, userName, email },
                 userId: savedUser._id,
                 message: "New User created sucessfully",
             })
         }
         else {
 
-            const { displayPicture, userName, email } = user;
+            const { displayPicture, userName, email, isInstitutionConfigured } = user;
 
             //generate a jsonwebtoken
             const token = jsonwebtoken.sign(JSON.stringify({ displayPicture, userName, email }), Secret);
@@ -59,6 +60,7 @@ export const SigninFacilitator = async (req: Request, res: Response) => {
             res.json({
                 status: true,
                 isNew: false,
+                isInstitutionConfigured: isInstitutionConfigured,
                 token: token,
                 user: { displayPicture, userName, email },
                 userId: user._id,
