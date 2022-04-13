@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+import {Request, Response,NextFunction } from 'express';
 import jsonwebtoken from 'jsonwebtoken';
 
 import { validateUserInfo } from '../utils/google';
@@ -77,7 +77,7 @@ export const SigninFacilitator = async (req: Request, res: Response) => {
 // TODO: Write logic that will allow facilitator to edit their profile
 export const UpdateFacilitator = async (req: Request, res: Response, nextFn: NextFunction) => {
     try {
-        const newFacilitator = await FacilitatorModel.findByIdAndUpdate(req.query.id, req.body, {
+        const newFacilitator = await FacilitatorModel.findByIdAndUpdate(req.query.facilitatorId, req.body, {
             returnDocument: "after"
         })
         res.send({
