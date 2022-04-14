@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
+import {Request, Response,NextFunction } from 'express';
 import jsonwebtoken from 'jsonwebtoken';
 
 import { validateUserInfo } from '../utils/google';
-import FacilitatorModel  from '../models/facilitators';
+import FacilitatorModel from '../models/facilitators';
 import logger from '../utils/logger';
 
 // This is a dummy secret, replace it with a key rotation mechanism.
@@ -36,7 +36,7 @@ export const SigninFacilitator = async (req: Request, res: Response) => {
             const { displayPicture, userName, email, isInstitutionConfigured } = savedUser;
 
             // generate a jsonwebtoken
-            const token = jsonwebtoken.sign(JSON.stringify( { displayPicture, userName, email } ), Secret);
+            const token = jsonwebtoken.sign(JSON.stringify({ displayPicture, userName, email }), Secret);
 
             // Send details to the caller
             res.json({
@@ -76,6 +76,21 @@ export const SigninFacilitator = async (req: Request, res: Response) => {
     }
 }
 
-export const UpdateFacilitator =async (req: Request, res: Response) => {
-    // TODO: Write logic that will allow facilitator to edit their profile
+// TODO: Write logic that will allow facilitator to edit their profile
+export const UpdateFacilitator = async (req: Request, res: Response, nextFn: NextFunction) => {
+    try {
+        const newFacilitator = await FacilitatorModel.findByIdAndUpdate(req.query.facilitatorId, req.body, {
+            returnDocument: "after"
+        })
+        res.send({
+            message: ' Facilitator details updated:',
+            body: newFacilitator
+        });
+    } catch (error: any) {
+        logger.error(error);
+        res.status(500).send({
+            message: error.message
+        });
+
+    }
 }
